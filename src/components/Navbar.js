@@ -71,15 +71,23 @@ export default function SwipeableTemporaryDrawer() {
                 <ListItemIcon>
                   {<MailIcon />}
                 </ListItemIcon>
-                <ListItemText primary={'API Docs'} />
+                <ListItemText primary={'API Documentation'} />
               </ListItemButton>
         </ListItem>
-          <ListItem key={'text2'} disablePadding>
+        <ListItem key={'text2'} disablePadding>
             <ListItemButton onClick={() => {router.push('/articles/simb3-ctd')}}>
               <ListItemIcon>
                 {<MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={'SIMB3 CTD'} />
+              <ListItemText primary={'First look: new SIMB3 MicroCTD add-on'} />
+            </ListItemButton>
+          </ListItem>
+          <ListItem key={'text2'} disablePadding>
+            <ListItemButton onClick={() => {router.push('/articles/getting-started-with-the-simb3-datasheet')}}>
+              <ListItemIcon>
+                {<MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={'Getting started with the SIMB3 datasheet'} />
             </ListItemButton>
           </ListItem>
       </List>
