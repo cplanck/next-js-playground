@@ -10,6 +10,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import Link from 'next/link'
 
 export default function SwipeableTemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -49,6 +50,25 @@ export default function SwipeableTemporaryDrawer() {
             </ListItemButton>
           </ListItem>
         ))}
+      </List>
+      <Divider />
+      <List>
+          <ListItem key={'text'} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {<MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={<Link href="/articles/api-docs">API Docs</Link>} />
+            </ListItemButton>
+          </ListItem>
+          <ListItem key={'text'} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {<MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={<Link href="/articles/simb3-ctd">SIMB3 CTD</Link>} />
+            </ListItemButton>
+          </ListItem>
       </List>
       <Divider />
       <List>
