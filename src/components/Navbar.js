@@ -11,6 +11,9 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import Hamburger from 'hamburger-react'
+
 
 export default function SwipeableTemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -19,6 +22,8 @@ export default function SwipeableTemporaryDrawer() {
     bottom: false,
     right: false,
   });
+
+  const router = useRouter()
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -53,20 +58,28 @@ export default function SwipeableTemporaryDrawer() {
       </List>
       <Divider />
       <List>
-          <ListItem key={'text'} disablePadding>
-            <ListItemButton>
+      <ListItem key={'text2'} disablePadding>
+              <ListItemButton onClick={() => {router.push('/')}}>
+                <ListItemIcon>
+                  {<MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={'Home'} />
+              </ListItemButton>
+        </ListItem>
+        <ListItem key={'text2'} disablePadding>
+              <ListItemButton onClick={() => {router.push('/articles/api-docs')}}>
+                <ListItemIcon>
+                  {<MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={'API Docs'} />
+              </ListItemButton>
+        </ListItem>
+          <ListItem key={'text2'} disablePadding>
+            <ListItemButton onClick={() => {router.push('/articles/simb3-ctd')}}>
               <ListItemIcon>
                 {<MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={<Link href="/articles/api-docs">API Docs</Link>} />
-            </ListItemButton>
-          </ListItem>
-          <ListItem key={'text'} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {<MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={<Link href="/articles/simb3-ctd">SIMB3 CTD</Link>} />
+              <ListItemText primary={'SIMB3 CTD'} />
             </ListItemButton>
           </ListItem>
       </List>
@@ -88,9 +101,11 @@ export default function SwipeableTemporaryDrawer() {
 
   return (
     <div>
-      {['left', 'right', 'top', 'bottom'].map((anchor) => (
+      {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Button onClick={toggleDrawer(anchor, true)}>
+            <Hamburger toggled={state.left}/>
+          </Button>
           <SwipeableDrawer
             anchor={anchor}
             open={state[anchor]}
