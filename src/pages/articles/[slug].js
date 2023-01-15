@@ -49,31 +49,31 @@ function ArticleBody(props){
     )
 }
 
-// export async function getStaticProps(context) {
-//         console.log(context)
-//         const { params } = context
-//         console.log(params.slug)
-//         const data = await fetchData(params.slug)
-//     return {
-//       props: {data},
-//       revalidate: 10, // In seconds
-//     }
-//   }
+export async function getStaticProps(context) {
+        console.log(context)
+        const { params } = context
+        console.log(params.slug)
+        const data = await fetchData(params.slug)
+    return {
+      props: {data},
+      revalidate: 10, // In seconds
+    }
+  }
 
-// export async function getStaticPaths() {
-//     return {
-//       paths: [{ params: { slug: 'api-docs' } }, { params: { slug: 'simb3-ctd' }}, { params: { slug: 'getting-started-with-the-simb3-datasheet' }}],
-//       fallback: false, // can also be true or 'blocking'
-//     }
-// }
-
-export async function getServerSideProps(context) {
-    console.log('hello')
-    console.log(context.query.slug)
-    const data = await fetchData(context.query.slug)
-    return{
-        props: {data}
+export async function getStaticPaths() {
+    return {
+      paths: [{ params: { slug: 'api-docs' } }, { params: { slug: 'simb3-ctd' }}, { params: { slug: 'getting-started-with-the-simb3-datasheet' }}],
+      fallback: false, // can also be true or 'blocking'
     }
 }
+
+// export async function getServerSideProps(context) {
+//     console.log('hello')
+//     console.log(context.query.slug)
+//     const data = await fetchData(context.query.slug)
+//     return{
+//         props: {data}
+//     }
+// }
 
 
