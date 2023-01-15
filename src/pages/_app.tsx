@@ -43,7 +43,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* <CssBaseline /> */}
         {/* <SwipeableTemporaryDrawer /> */}
         <Example/>
-        <Component {...pageProps}/>
+        {/* <Component {...pageProps}/> */}
       {/* </ThemeProvider> */}
     </QueryClientProvider>   
   )
