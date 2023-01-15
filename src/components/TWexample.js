@@ -10,8 +10,8 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'CTD', href: '/articles/simb3-ctd', current: true },
-  { name: 'API', href: '/articles/api-docs', current: false },
+  { name: 'CTD', href: '/articles/simb3-ctd', current: false },
+  { name: 'API', href: '/articles/api-docs', current: true },
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
   { name: 'Reports', href: '#', current: false },
@@ -29,14 +29,6 @@ function classNames(...classes) {
 export default function Example() {
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
       <div className="min-h-full">
         <div className="bg-blue-800 pb-32">
           <Disclosure as="nav" className="bg-gray-800">
@@ -56,19 +48,14 @@ export default function Example() {
                         <div className="hidden md:block">
                           <div className="ml-10 flex items-baseline space-x-4">
                             {navigation.map((item) => (
-                              <a
-                                key={item.name}
-                                href={item.href}
-                                className={classNames(
-                                  item.current
-                                    ? 'bg-gray-900 text-white'
-                                    : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                  'px-3 py-2 rounded-md text-sm font-medium'
-                                )}
-                                aria-current={item.current ? 'page' : undefined}
-                              >
-                                {item.name}
-                              </a>
+                            <Link href={item.href} key={item.name}
+                            className={classNames(
+                                      item.current
+                                        ? 'bg-gray-900 text-white'
+                                        : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                      'px-3 py-2 rounded-md text-sm font-medium'
+                                    )}
+                            >{item.name} </Link>
                             ))}
                           </div>
                         </div>
@@ -103,18 +90,9 @@ export default function Example() {
                               <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                 {userNavigation.map((item) => (
                                   <Menu.Item key={item.name}>
-                                    {({ active }) => (
-                                    //   <a
-                                    //     href={item.href}
-                                    //     className={classNames(
-                                    //       active ? 'bg-gray-100' : '',
-                                    //       'block px-4 py-2 text-sm text-gray-700'
-                                    //     )}
-                                    //   >
-                                    //     {item.name}
-                                    //   </a>
+                                   
                                     <Link href={item.href}>{item.name}</Link>
-                                    )}
+                                    
                                   </Menu.Item>
                                 ))}
                               </Menu.Items>
@@ -142,7 +120,7 @@ export default function Example() {
                     {navigation.map((item) => (
                       <Disclosure.Button
                         key={item.name}
-                        as="a"
+                        // as="a"
                         href={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -150,7 +128,7 @@ export default function Example() {
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
-                        {item.name}
+                        <Link href={item.href}>{item.name}</Link>
                       </Disclosure.Button>
                     ))}
                   </div>
@@ -208,4 +186,5 @@ export default function Example() {
     </>
   )
 }
+
 
