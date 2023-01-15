@@ -55,7 +55,8 @@ export async function getStaticProps(context) {
         console.log(params.slug)
         const data = await fetchData(params.slug)
     return {
-      props: {data}
+      props: {data},
+      revalidate: 10, // In seconds
     }
   }
 
