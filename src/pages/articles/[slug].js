@@ -66,6 +66,8 @@ export async function getStaticPaths() {
     }
 }
 
+//henlo
+
 // export async function getServerSideProps(context) {
 //     console.log('hello')
 //     console.log(context.query.slug)
