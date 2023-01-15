@@ -12,8 +12,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
-  const [menuOpen, setMenuOpen] = React.useState(true)
-
   return (
     <>
       <Head>
@@ -23,12 +21,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-       Henlo, this is the NEXT page! Plus your routing works! YAY
-
-       <Link href="/">Home</Link>
        <BasicCard />
-       <TemporaryDrawer menuOpen={menuOpen}/>
-       <Button variant="contained" onClick={()=> {setMenuOpen(!menuOpen)}}>Menu</Button>
       </main>
     </>
   )
