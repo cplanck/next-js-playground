@@ -5,6 +5,7 @@ import { Inter } from '@next/font/google'
 // import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import BasicCard from '../components/Card'
+import Example from '../components/TWexample'
 import TemporaryDrawer from '../components/SideDrawer'
 import Button from '@mui/material/Button';
 
@@ -21,7 +22,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-       <BasicCard />
+       <Example/>
       </main>
     </>
   )
